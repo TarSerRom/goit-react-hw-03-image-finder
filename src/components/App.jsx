@@ -9,7 +9,7 @@ export const App = () => {
         fontSize: 40,
         textTransform: 'uppercase',
         color: '#010101',
-        backgroundColor: 'yellow'
+        backgroundColor: 'blue'
       }}
     >
       React homework template
