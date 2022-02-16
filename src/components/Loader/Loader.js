@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Loader from 'react-loader-spinner';
 
-export default class Loader extends Component {
+export default class SpinnerLoader extends Component {
   //other logic
   render() {
     return (
