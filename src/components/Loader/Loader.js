@@ -1,19 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { createPortal } from 'react-dom';
+import{ Audio } from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import './Loader.css';
 
-import Loader from 'react-loader-spinner';
+const loaderRef = document.querySelector('#loader-root');
 
-export default class SpinnerLoader extends Component {
-  //other logic
-  render() {
-    return (
-      <Loader
-        type="Puff"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        timeout={3000} //3 secs
-        visible={true}
-      />
-    );
-  }
-}
+const LoaderModal = () => {
+  return createPortal(
+    <div className="Loader">
+      <Audio
+    height="100"
+    width="100"
+    color='blue'
+    ariaLabel='loading'
+  />
+    </div>,
+    loaderRef,
+  );
+};
+
+export default LoaderModal;

@@ -1,5 +1,7 @@
 import ImageGalleryItem from "components/ImageGalleryItem/ImageGalleryItem";
 
+import './ImageGallery.css'
+
 
 export default function ImageGallery({ images, toggleModal}) {
   return (

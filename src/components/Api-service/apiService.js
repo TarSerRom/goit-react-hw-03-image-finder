@@ -12,6 +12,6 @@ function fetchImages (searchQuery, page) {
 }
 
 
-const api = { fetchImages };
+const API = { fetchImages };
 
-export default api;
+export default API;

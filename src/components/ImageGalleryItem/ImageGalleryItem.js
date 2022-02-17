@@ -1,4 +1,4 @@
-
+import './ImageGalleryItem.css'
 
 export default function ImageGalleryItem({ id, tags, smallImage, largeImage, onClickItem }) {
   return (

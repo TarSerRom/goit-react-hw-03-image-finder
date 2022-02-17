@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+import './Button.css'
+
 export default function Button({ loadMore }) {
   return (
     <button className="Button" type="button" onClick={loadMore}>
@@ -5,3 +8,6 @@ export default function Button({ loadMore }) {
     </button>
   );
 }
+Button.propTypes = {
+  onClick: PropTypes.func,
+};
