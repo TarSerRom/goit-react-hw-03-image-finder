@@ -39,9 +39,9 @@ class App extends Component {
 
     if (prevName !== nextName) {
       this.setState({ status: 'pending', page: 1, images: [] });
-      this.fetchImages(nextName, nextPage);
+      //this.fetchImages(nextName, nextPage);
     }
-    if (prevPage !== nextPage) {
+    if (prevPage !== nextPage && nextPage !== 1) {
       this.fetchImages(nextName, nextPage);
     }
   }
@@ -58,7 +58,7 @@ class App extends Component {
           };
         });
 
-        if (this.prevPage !== nextPage) {
+        if (this.prevPage !== nextPage && nextPage !== 1) {
           window.scrollTo({
             top: document.documentElement.scrollHeight,
             behavior: 'smooth',
@@ -70,6 +70,7 @@ class App extends Component {
 
   handleFormSubmit = name => {
     this.fetchImages(name, this.state.page);
+    this.setState({ imageSearch: name, page: 1, status: 'pending' })
   };
 
   toggleModal = largeImageURL => {
