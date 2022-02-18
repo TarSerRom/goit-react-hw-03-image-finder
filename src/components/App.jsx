@@ -61,14 +61,14 @@ class App extends Component {
             images: [...prevState.images, ...data.hits],
             status: 'resolved',
             imageSearch: nextName,
-          };
-        }).catch(error => this.setState({ error, status: 'rejected' }));
-      })
+          }
+        })
+      }).catch(error => this.setState({ error, status: 'rejected' }));
     }
 
-  handleFormSubmit = name => {
-    this.fetchImages(name, this.state.page);
+  handleFormSubmit = (name) => {
     this.setState({ imageSearch: name, page: 1, status: 'pending' })
+    this.fetchImages(name, 1);
   };
 
   toggleModal = largeImageURL => {
