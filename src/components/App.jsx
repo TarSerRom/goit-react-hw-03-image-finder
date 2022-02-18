@@ -44,6 +44,12 @@ class App extends Component {
     if (prevPage !== nextPage && nextPage !== 1) {
       this.fetchImages(nextName, nextPage);
     }
+     if ( nextPage > 1) {
+          window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth',
+          });
+        }
   }
 
   fetchImages(nextName, nextPage) {
@@ -56,17 +62,9 @@ class App extends Component {
             status: 'resolved',
             imageSearch: nextName,
           };
-        });
-
-        if (this.prevPage !== nextPage && nextPage !== 1) {
-          window.scrollTo({
-            top: document.documentElement.scrollHeight,
-            behavior: 'smooth',
-          });
-        }
+        }).catch(error => this.setState({ error, status: 'rejected' }));
       })
-      .catch(error => this.setState({ error, status: 'rejected' }));
-  }
+    }
 
   handleFormSubmit = name => {
     this.fetchImages(name, this.state.page);
